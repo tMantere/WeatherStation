@@ -27,8 +27,8 @@ print('Initializing Done, Starting Infinite Loop')
 while True:
 	# Time stamps to compare, to make sure everything runs once/day
 	now = datetime.datetime.now().time()
-	time = now.replace(hour=19, minute=28, second=0)
-	endTime = now.replace(hour=19, minute=29,second=0)
+	time = now.replace(hour=0, minute=30, second=0)
+	endTime = now.replace(hour=0, minute=35,second=0)
 	
 	if prevDate is not datetime.datetime.today().date() and now > time and now < endTime:
 		# Two empty lines and timestamp for when the loop main starts.
@@ -52,12 +52,12 @@ while True:
 			datetime.timedelta(days=j))
 		
 		forecastFinal = row.RowMaker(sendData)
+		date = datetime.datetime.strptime(avgData[3][-1], '%Y-%m-%d')
+		date = date - datetime.timedelta(days=1)
+		avgAdder = [date, "%.2f" % avgData[0][-1], 
+					"%.2f" % avgData[1][-1], "%.2f" % avgData[2][-1]]
 		
 		# Send the Data to the sql server
-		avgAdder = [avgData[3][-1] - datetime.timedelta(days=1),
-					"%.2f" % avgData[0][-1], "%.2f" % avgData[1][-1], 
-					"%.2f" % avgData[2][-1]]
-		
 		print('Building Done. Sending data to SQL Server')
 		sql.DataSender(avgAdder, 2)
 		sql.DataSender(forecastFinal, 3)

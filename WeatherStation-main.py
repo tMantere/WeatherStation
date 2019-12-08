@@ -53,12 +53,11 @@ while True:
 		
 		forecastFinal = row.RowMaker(sendData)
 		date = datetime.datetime.strptime(avgData[3][-1], '%Y-%m-%d')
-		date = date - datetime.timedelta(days=1)
 		avgAdder = [date, "%.2f" % avgData[0][-1], 
 					"%.2f" % avgData[1][-1], "%.2f" % avgData[2][-1]]
 		
 		# Send the Data to the sql server
-		print('Building Done. Sending data to SQL Server')
+		print('Building Done. Sending data to SQL Server', date)
 		sql.DataSender(avgAdder, 2)
 		sql.DataSender(forecastFinal, 3)
 		

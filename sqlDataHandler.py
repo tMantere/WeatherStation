@@ -8,7 +8,7 @@ def DataRetreiver(wtData, pointer):
 		print('Retreiving Data')
 		connection = mysql.connector.connect(host=ADDRESS,
 						     database='db',
-						     user='project',
+						     user='user',
 						     password='password')
 
 		if pointer == 1:
@@ -65,7 +65,7 @@ def DataSender(data, indicator):
 	try:
 		connection = mysql.connector.connect(host=ADDRESS,
 						     database='db',
-						     user='project',
+						     user='user',
 						     password='password')
 		
 		if indicator == 1:

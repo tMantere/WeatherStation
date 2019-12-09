@@ -6,7 +6,7 @@ kosteus, lampo, paine, kello, paiva = [],[],[],[],[]
 
 def DataGather(tempData):
 	# Path to the CSV file
-	path = 'C:/Users/Muninn/Desktop/'
+	path = 'PATH-TO-FILE'
 	
 	# Open the CSV file, and select encoding if necessary
 	with open(path + 'csv-1d86b714-353e-437e-a0de-9660eae7a0c4.csv', 'r') as f:

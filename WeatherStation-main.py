@@ -47,7 +47,7 @@ while True:
 		
 		print('Building final send data')
 		sendData.append([])
-		for j in range(1,16):
+		for j in range(1,15):
 			sendData[3].append(datetime.datetime.today().date() + 
 			datetime.timedelta(days=j))
 		

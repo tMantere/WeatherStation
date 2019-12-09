@@ -6,7 +6,7 @@ from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 def Prediction(data, season, pointer):
 	# Locally used arrays and variables.
 	test, train, x, tempData = [], [], [], []
-	h = 14
+	h = 13
 	
 	print('Training Done, modelling')
 	

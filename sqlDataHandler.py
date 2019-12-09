@@ -6,10 +6,10 @@ import datetime
 def DataRetreiver(wtData, pointer):
 	try:
 		print('Retreiving Data')
-		connection = mysql.connector.connect(host='87.92.64.6',
-											 database='projekti',
-											 user='projekti',
-											 password='Saaasema')
+		connection = mysql.connector.connect(host=ADDRESS,
+						     database='db',
+						     user='project',
+						     password='password')
 
 		if pointer == 1:
 			mySql_insert_query = """SELECT * FROM Historical"""
@@ -63,11 +63,11 @@ def DataRetreiver(wtData, pointer):
 			
 def DataSender(data, indicator):
 	try:
-		connection = mysql.connector.connect(host='87.92.64.6',
-									 database='projekti',
-									 user='projekti',
-									 password='Saaasema')
-			
+		connection = mysql.connector.connect(host=ADDRESS,
+						     database='db',
+						     user='project',
+						     password='password')
+		
 		if indicator == 1:
 			for row in data:
 				mySql_insert_query = """INSERT INTO Historical  
